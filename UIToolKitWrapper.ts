@@ -1,3 +1,4 @@
+import { AppComponent } from "./app.component";
 
 export class UIToolKitControls {
     //msger-chat
@@ -5,7 +6,7 @@ export class UIToolKitControls {
     urlPatten = "https://fileupload.bupa.com.sa"
 
     private observer!: MutationObserver;
-    constructor(private document: Document, private downloadDocument: any) {
+    constructor(private document: Document) {
 
         document.body.addEventListener('click', (event) => {
             //console.log('Dynamic element clicked:', event.target);
@@ -63,13 +64,13 @@ export class UIToolKitControls {
                         console.log(array)
 
                         anchor.href = '#';
-                         let downloadDoc =this.downloadDocument
-
+                        let self=this
+                          
 
                         // Add event listener to the anchor to prevent default behavior and call custom function
                         anchor.addEventListener('click', function (event) {
                             event.preventDefault();
-                            downloadDoc(array[3])
+                            self.downloadFunction(array[3])
                         });
                     }
 
@@ -90,6 +91,7 @@ export class UIToolKitControls {
     }
 
 
+    
 
 
 
@@ -144,7 +146,10 @@ export class UIToolKitControls {
         sub.click()
 
     }
+  
+    downloadFunction(id:string){
 
+    }
 
 
 }
